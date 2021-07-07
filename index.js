@@ -1,7 +1,23 @@
-function fetchBooks() {
-  //write fetch request to the Game of Thrones API
+function fetchBooks() { 
+  fetch('https://anapioficeandfire.com/api/books')
+  .then(resp => resp.json())
+  .then(json => console.log(json));
 }
-
+function fetchHouse() { 
+  fetch("https://anapioficeandfire.com/api/houses/")
+  .then(resp => resp.json())
+  .then(json => console.log(json));
+}
+function fetch5thBooks() { 
+  fetch("https://anapioficeandfire.com/api/books/5/")
+  .then(resp => resp.json())
+  .then(json => console.log(json));
+}
+function fetchCharacter() { 
+  fetch("https://anapioficeandfire.com/api/characters/1031/")
+  .then(resp => resp.json())
+  .then(json => console.log(json));
+}
 function renderBooks(json) {
   const main = document.querySelector('main')
   json.forEach(book => {
@@ -12,5 +28,7 @@ function renderBooks(json) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetchBooks()
+  fetch5thBooks()
+  fetchHouse()
+  fetchCharacter()
 })
